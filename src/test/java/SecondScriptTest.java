@@ -2,6 +2,7 @@
 
 import java.time.Duration;
 
+import org.testng.AssertJUnit;
 import org.testng.annotations.*;
 import org.testng.Assert;
 import org.openqa.selenium.By;
@@ -44,7 +45,7 @@ public class SecondScriptTest {
         textBox2.sendKeys("secret_sauce");
 
         new WebDriverWait(driver, Duration.ofMillis(1000)).until(ExpectedConditions.elementToBeClickable(submitButton)).click();
-
+        AssertJUnit.assertEquals("https://www.saucedemo.com/inventory.html",driver.getCurrentUrl().toString());
         System.out.println("Logged in successfully");
     }
     @Test(priority = 3)
